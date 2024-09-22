@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Studio Portfolio</title>
+    <title>Visual Box Studio Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
         :root {
             --primary-bg: #080808;
             --secondary-bg: rgba(20, 20, 20, 0.8);
-            --accent-color: #FF0000;
+            --accent-color: #ff0000;
             --text-color: #f0f0f0;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -22,7 +22,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: var(--primary-bg);
             color: var(--text-color);
             line-height: 1.6;
@@ -30,14 +30,14 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         nav {
             background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -54,8 +54,9 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent-color);
+            color: #f0f0f0;
             text-decoration: none;
+            font-family: "Teko", sans-serif;
         }
 
         .nav-links {
@@ -68,7 +69,7 @@
             color: var(--text-color);
             text-decoration: none;
             transition: var(--transition);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
@@ -93,7 +94,7 @@
         .search-input:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.2);
-            width: 250px;
+            width: 220px;
         }
 
         .search-icon {
@@ -102,6 +103,15 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
@@ -123,9 +133,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
-            opacity: 0.2;
-            animation: zoom 20s infinite alternate;
+            background: url('./VisualBoxBackgrounds.png') no-repeat center center/cover;
+            opacity: 0.3;
         }
 
         @keyframes zoom {
@@ -136,12 +145,17 @@
         .header-content {
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             font-size: 4rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: "Teko", sans-serif;
+            color: #fff;
         }
 
         .tagline {
@@ -153,7 +167,7 @@
             display: inline-block;
             padding: 12px 30px;
             background-color: var(--accent-color);
-            color: var(--primary-bg);
+            color: #fff;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
@@ -163,9 +177,15 @@
         }
 
         .cta-button:hover {
-            background-color: #fff;
+            background-color: #cc0000;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .logo-image {
+            width: 150px;
+            height: auto;
+            margin-top: 20px;
         }
 
         main {
@@ -176,36 +196,36 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
             margin-bottom: 40px;
         }
 
         .category-button {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background-color: var(--secondary-bg);
             color: var(--text-color);
             border: none;
             border-radius: 20px;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .category-button:hover,
         .category-button.active {
             background-color: var(--accent-color);
-            color: var(--primary-bg);
+            color: #fff;
         }
 
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .work-item {
             background-color: var(--secondary-bg);
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
             transition: var(--transition);
             position: relative;
@@ -213,45 +233,45 @@
         }
 
         .work-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
         }
 
         .work-thumbnail {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
         }
 
         .work-info {
-            padding: 20px;
+            padding: 15px;
         }
 
         .work-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
 
         .work-description {
             font-size: 0.9rem;
             color: #ccc;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .view-button {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 6px 16px;
             background-color: var(--accent-color);
-            color: var(--primary-bg);
+            color: #fff;
             text-decoration: none;
             border-radius: 20px;
             font-size: 0.9rem;
             transition: var(--transition);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .view-button:hover {
-            background-color: #fff;
+            background-color: #cc0000;
         }
 
         .modal {
@@ -270,11 +290,11 @@
             position: relative;
             margin: 5% auto;
             padding: 20px;
-            width: 80%;
+            width: 90%;
             max-width: 800px;
             background-color: var(--secondary-bg);
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
         }
 
         .close {
@@ -308,114 +328,190 @@
         }
 
         footer {
-    background-color: var(--secondary-bg);
-    padding: 60px 0;
-}
+            background-color: var(--secondary-bg);
+            padding: 40px 0;
+            text-align: center;
+        }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-}
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-}
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
 
-.footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: var(--accent-color);
-}
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
 
-.footer-links {
-    display: flex;
-    flex-direction: column;
-}
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.footer-links a,
-.contact-info p {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: var(--transition);
-}
+        .footer-links a,
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: var(--transition);
+        }
 
-.footer-links a:hover {
-    color: var(--accent-color);
-}
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
 
-.footer-links a svg,
-.contact-info p svg,
-.social-links a svg {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-}
+        .footer-links a svg,
+        .contact-info p svg,
+        .social-links a svg {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+        }
 
-.social-links {
-    display: flex;
-    justify-content: flex-start; /* Align to the left */
-    gap: 15px;
-}
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
 
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Circular container size */
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: var(--text-color);
-    transition: var(--transition);
-}
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
 
-.social-links a svg {
-    margin: 0; /* Ensure the SVG is fully centered */
-}
+        .social-links a svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-.social-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-bg);
-    transform: translateY(-3px);
-}
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
 
-.copyright {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 3rem;
-    }
+        @media (max-width: 768px) {
+            nav .container {
+                flex-wrap: wrap;
+            }
 
-    .tagline {
-        font-size: 1.2rem;
-    }
+            .mobile-menu-toggle {
+                display: block;
+            }
 
-    .work-grid {
-        grid-template-columns: 1fr;
-    }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 15px;
+            }
 
-    .footer-content {
-        flex-direction: column;
-    }
-}
+            .nav-links.active {
+                display: flex;
+            }
 
+            .search-container {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                width: 100%;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .categories {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+            }
+
+            .category-button {
+                flex: 0 0 auto;
+            }
+
+            .work-item {
+                margin-bottom: 20px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+
+            .large-icon {
+                width: 32px; 
+                height: 32px; 
+            }
+
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <a href="#" class="logo">Visual Box</a>
+            <a href="#" class="logo">V I S U A L B O X</a>
+            <button class="mobile-menu-toggle">☰</button>
             <div class="nav-links">
                 <a href="#work">Our Work</a>
                 <a href="#contact">Contact</a>
@@ -432,7 +528,7 @@
 
     <header>
         <div class="header-content">
-            <h1>Visual Box</h1>
+            <h1 class="logotext">V I S U A L B O X</h1>
             <p class="tagline">Crafting Visual Experiences</p>
             <a href="#work" class="cta-button">Explore Our Work</a>
         </div>
@@ -490,11 +586,11 @@
                             </svg>
                             Services
                         </a>
-                        <a href="#contact">
+                        <a href="http://wa.me/919037833822">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                             </svg>
-                            Contact
+                            Whatsapp Us
                         </a>
                     </div>
                 </div>
@@ -505,7 +601,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
-                            +1 (123) 456-7890
+                            +919037833822 | 
+                             +919846055336
                         </p>
                         <p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -515,12 +612,12 @@
                             info@visualboxmedia.com
                         </p>
                         <p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="large-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            123 Creative St, Artville, AV 12345
-                        </p>
+                            41/2065, A2, Civil Line Rd, Bypass Junction, Palarivattom, Kochi, Kerala 682028, India
+                            
                     </div>
                 </div>
                 <div class="footer-section">
@@ -561,17 +658,20 @@
     <script>
         // Work data
         const works = [
-            { id: 1, title: "Ethereal Dreams", category: "cinematic", thumbnail: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80", description: "A journey through surreal landscapes and emotions.", videoId: "dQw4w9WgXcQ" },
-            { id: 2, title: "Urban Symphony", category: "cinematic", thumbnail: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80", description: "The rhythm of city life captured in motion.", videoId: "dQw4w9WgXcQ" },
-            { id: 3, title: "Whispers of Nature", category: "documentary", thumbnail: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Exploring the hidden beauty of the natural world.", videoId: "dQw4w9WgXcQ" },
-            { id: 4, title: "Luxury Redefined", category: "commercial", thumbnail: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Elevating brands through cinematic storytelling.", videoId: "dQw4w9WgXcQ" },
-            { id: 5, title: "Tech Innovation", category: "commercial", thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Showcasing the future of technology today.", videoId: "dQw4w9WgXcQ" },
-            { id: 6, title: "Culinary Delights", category: "commercial", thumbnail: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Bringing flavors to life on screen.", videoId: "dQw4w9WgXcQ" },
-            { id: 7, title: "Rhythmic Fusion", category: "music-video", thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "A visual journey through sound and motion.", videoId: "dQw4w9WgXcQ" },
-            { id: 8, title: "Ocean's Secrets", category: "documentary", thumbnail: "https://images.unsplash.com/photo-1551244072-5d12893278ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Unveiling the mysteries of the deep blue.", videoId: "dQw4w9WgXcQ" },
-            { id: 9, title: "Neon Nights", category: "music-video", thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80", description: "Electrifying visuals for a chart-topping hit.", videoId: "dQw4w9WgXcQ" },
-            { id: 10, title: "Mountain Majesty", category: "documentary", thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Scaling the heights of human endurance.", videoId: "dQw4w9WgXcQ" },
-            // Add more work items here...
+            { id: 1, title: "Visual Box | Corporate Video", category: "Corporate", thumbnail: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80", description: "A journey through surreal landscapes and emotions.", videoId: "cItIkRpNfqA" },
+            { id: 2, title: "Visual Box | Corporate Video", category: "Corporate", thumbnail: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80", description: "The rhythm of city life captured in motion.", videoId: "ubymmogIIxA" },
+            { id: 3, title: "Visual Box | Corporate Video", category: "Corporate", thumbnail: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Exploring the hidden beauty of the natural world.", videoId: "HKjY0RJZHE0" },
+            { id: 4, title: "Visual Box | Corporate Video", category: "Corporate", thumbnail: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Elevating brands through cinematic storytelling.", videoId: "ushetLXVySQ" },
+            { id: 5, title: "Visual Box | Entertainment", category: "Entertainment", thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Showcasing the future of technology today.", videoId: "fSpTmQ-XEw8" },
+            { id: 6, title: "Visual Box | Entertainment", category: "Entertainment", thumbnail: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Bringing flavors to life on screen.", videoId: "OSJ3oIrvYaM" },
+            { id: 7, title: "Visual Box | Entertainment", category: "Entertainment", thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "A visual journey through sound and motion.", videoId: "O6B6NqNwXVo" },
+            { id: 8, title: "Visual Box | Entertainment", category: "Entertainment", thumbnail: "https://images.unsplash.com/photo-1551244072-5d12893278ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Unveiling the mysteries of the deep blue.", videoId: "a4jd9l4LJJ4" },
+            { id: 9, title: "Visual Box | Automotive", category: "Automotive", thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80", description: "Electrifying visuals for a chart-topping hit.", videoId: "woZXvlhgMVw" },
+            { id: 10, title: "Visual Box | Automotive", category: "Automotive", thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Scaling the heights of human endurance.", videoId: "a10SY79ULZ0" },
+            { id: 11, title: "Visual Box | Automotive", category: "Automotive", thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Scaling the heights of human endurance.", videoId: "0bDTDVq3upA" },
+            { id: 12, title: "Visual Box | Automotive", category: "Automotive", thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", description: "Scaling the heights of human endurance.", videoId: "2dmLmlX_aNo" },
+
+            
         ];
 
         // Function to create work item HTML
@@ -674,6 +774,14 @@
         });
 
         searchIcon.addEventListener('click', performSearch);
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
